@@ -4,6 +4,11 @@
 
 using namespace std;
 
+bool setApple(char **field) {
+	//todo
+	return true;
+}
+
 struct snakePart {
   int x, y;
   snakePart* next;
@@ -63,18 +68,27 @@ int main() {
 	}
 	
 	// init snake
-	  snakePart snake;
-	  snakePart* snakeHead = &snake;
+	snakePart snake;
+	snakePart* snakeHead = &snake;
 
-	  snake.x = rand() % fieldWidth;
-	  snake.y = rand() % fieldHeight;
-	  snake.next = NULL;
-	  snake.prev = NULL;
+	snake.x = rand() % fieldWidth;
+	snake.y = rand() % fieldHeight;
+	snake.next = NULL;
+	snake.prev = NULL;
 
-	  bool alive = true;
-	  char symbol; 
-	  int currentLength = 0;
+	bool alive = true;
+	char symbol; 
+	int currentLength = 0;
 	
+	int appleX, appleY;
+
+	appleX = rand() % fieldWidth;
+	appleY = rand() % fieldHeight;
+
+	snakePart* snakeCurrent = snakeHead;
+
+	int snakeXprev, snakeYprev;
+	int length = 0;
 	while (alive) {
 	    snakeXprev = snake.x;
 	    snakeYprev = snake.y;
@@ -94,7 +108,71 @@ int main() {
 	    if ((symbol == 'd') or (symbol == 'D')) {
 	      snake.x = (snake.x + 1) % fieldWidth;
 	    }
+		
+	    snakeCurrent = snakeHead;
+	    if (length > 1) {
+		snakeCurrent = snakeCurrent->next;
+		while (snakeCurrent->next != NULL) {
+			if (field[snake.y][snake.x] == '@') {
+				alive = false;
+				break;
+			}
+			snakeCurrent = snakeCurrent->next;
+		}
+	    }
+		
+	    if (!alive) break;
+	    if ((snake.x == appleX) and (snake.y == appleY)) {
+		do {
+			appleX = rand() % fieldWidth;
+			appleY = rand() % fieldHeight;
+		} while ((field[appleY][appleX] != ' '));
+
+		snakeCurrent = snakeHead;
+
+		while (snakeCurrent->next != NULL) snakeCurrent = snakeCurrent->next;
+		snakeCurrent->next = new snakePart;
+		snakeCurrent->next->x = snakeXprev;
+		snakeCurrent->next->y = snakeYprev;
+		snakeCurrent->next->prev = snakeCurrent;
+		snakeCurrent->next->next = NULL;
+		length++;
+	    }
+	    snakeCurrent = snakeHead;
+
+	    if (length > 0) {
+		while (snakeCurrent->next != NULL) snakeCurrent = snakeCurrent->next;
+		while (snakeCurrent != snakeHead->next) {
+			snakeCurrent->x = snakeCurrent->prev->x;
+			snakeCurrent->y = snakeCurrent->prev->y;
+			snakeCurrent = snakeCurrent->prev;
+		}
+		snakeCurrent->x = snakeXprev;
+		snakeCurrent->y = snakeYprev;
+	    }
+	    snakeCurrent = snakeHead;
+
+	    currentLength = 0;
+
+	    clearField(field, fieldHeight, fieldWidth);
+	    field[appleY][appleX] = '+';
+
+	    while (snakeCurrent != NULL) {
+		if (currentLength == 0) {
+			field[snakeCurrent->y][snakeCurrent->x] = 'O';
+		}
+		else {
+			field[snakeCurrent->y][snakeCurrent->x] = '@';
+		}
+			currentLength++;
+			snakeCurrent = snakeCurrent->next;
+	    }
+	    system("cls");
+		
+	    cout << "YOUR CURRENT SCORE: " << length << endl;
+	    printField(field, fieldHeight, fieldWidth);
 	}
+	cout << endl << "GAME OVER! YOUR SCORE: " << length << endl;
 
 	return 0;
 }
