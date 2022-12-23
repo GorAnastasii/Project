@@ -1,0 +1,181 @@
+*{
+    font-family:'Courier New', Courier, monospace;
+}
+li {
+    display: inline-block;
+    margin-left: 5%;
+}
+
+header {
+    background: linear-gradient(30deg, #474a51, gray);
+    position: fixed;
+    width: 80%;
+    z-index: 100;
+}
+
+header img {
+    width: 2%;
+    padding-left: 2%;
+    padding-top: 15px;
+    float: left;
+}
+.snake {
+    transform: translate(-60px,-70px);;
+}
+.gaming {
+    display: inline-block;
+    width: 400px;
+    margin: 0;
+    transform: translate(40px,-65px);
+}
+header a {
+    text-decoration: none;
+
+}
+
+header a:link {
+    color: white;
+    font-family:'Courier New', Courier, monospace
+    /* Цвет непосещенных ссылок */
+}
+
+header a:visited {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    /* Цвет посещенных ссылок */
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(45deg, #30cfd0, #330867);
+    color: linear-gradient(45deg, #30cfd0, #330867);
+}
+
+.abutton {
+    height: 42px;
+    border: none;
+    color: #0F273F;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+    box-shadow: 7px 4px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+.abutton:hover {
+    transition: 2s;
+    background: rgba(0, 0, 0, 0);
+    color: #ff4c5b;
+    box-shadow: 8px 10px 8px 0px rgba(34, 60, 80, 0.59) inset;
+}
+
+body {
+    max-width: 80%;
+    margin: auto;
+    background: url(../images/3.jpg) center no-repeat;
+    background-attachment: fixed;
+}
+
+.maindiv {
+    background: rgba(21,23,25,0.85);
+    padding-top: 10%;
+    color: white;
+    padding: 10% 10px 0 10px;
+}
+
+
+p+img {
+    margin-left: 25%;
+}
+
+.type_a {
+    padding-bottom: 5%;
+    min-height: 250px;
+}
+
+.type_a p {
+    max-width: 50%;
+    float: left;
+}
+
+.type_a a {
+    display: block;
+    text-align: center;
+}
+
+
+.type_b {
+    padding-bottom: 5%;
+}
+
+.type_b p {
+    width: 40%;
+    float: right;
+    text-align: right;
+}
+
+.type_b h1 {
+    padding-top: 5%;
+    text-align: right;
+}
+
+
+
+.type_c {
+    padding-bottom: 20%;
+}
+
+.type_c p {
+    padding-bottom: 2%;
+}
+
+#github {
+    text-align: center;
+}
+
+.type_c h2 {
+    text-align: center;
+}
+
+
+figure {
+    display: inline-block;
+    padding-left: 1%;
+    transform: translateY(190px);
+}
+
+figure img {
+    width: 70%;
+}
+
+
+figcaption {
+    color: white;
+    text-align: center;
+}
+
+.person {
+    width: 120px;
+    height: 120px;
+}
+.leader {
+    display: block;
+    position: absolute;
+    right: 50%;
+    transform: translateX(69%);
+}
+
+.type_git {
+    height: 800px;
+    margin-top: 45px;
+}
+.git {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
