@@ -179,3 +179,14 @@ figcaption {
     right: 50%;
     transform: translateX(50%);
 }
+
+@media (max-width: 1440px) {
+    li{
+        margin: 5px;
+    }
+
+    figure{
+        padding:0;
+        margin: 3%;
+    }
+}
