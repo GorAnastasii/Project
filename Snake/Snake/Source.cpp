@@ -1,8 +1,10 @@
 #include <iostream>
 #include <random>
 #include <conio.h>
+#include <Windows.h>
 
 using namespace std;
+HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
 bool setApple(char **field) {
 	//todo
@@ -37,6 +39,8 @@ void clearField(char **field, int fieldHeight, int fieldWidth) {
 
 int main() {
 	setlocale(LC_ALL, "Russian");
+	SetConsoleTitle(L"SNAKE GAME");
+	SetConsoleTextAttribute(h, 13);
 	
 	int fieldWidth, fieldHeight;
 
