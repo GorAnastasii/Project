@@ -10,7 +10,7 @@ int main()
     int i = 0, j = 0, k, size = 0;
     char ABC[] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
     char msg[1000];
-    cout << "Введите сообщение, которое будет закодировано: " << endl;
+    cout << "Enter a string: " << endl;
     cin.ignore(cin.rdbuf()->in_avail());
     gets_s(msg);
     for (i = 0;; i++) {
@@ -18,7 +18,7 @@ int main()
             break;
         size++;
     }
-    cout << "\nВведите сдвиг:" << endl;
+    cout << "\nEnter the text offset length:" << endl;
     cin >> k;
     cout << endl;
     for (i = 0; i < size; i++)
@@ -39,7 +39,7 @@ int main()
         }
 
     }
-    cout << "Полученное закодированное сообщение: " << endl;
+    cout << "The result: " << endl;
     cout << msg << endl;
     return 0;
 }
