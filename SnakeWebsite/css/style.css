@@ -20,7 +20,8 @@ header img {
     float: left;
 }
 .snake {
-    transform: translate(-60px,-70px);;
+    transform: translate(-60px,-70px);
+    margin-left: 25%;
 }
 .gaming {
     display: inline-block;
@@ -36,13 +37,11 @@ header a {
 header a:link {
     color: white;
     font-family:'Courier New', Courier, monospace
-    /* Цвет непосещенных ссылок */
 }
 
 header a:visited {
     color: white;
     font-family: 'Courier New', Courier, monospace;
-    /* Цвет посещенных ссылок */
 }
 
 hr {
@@ -86,14 +85,8 @@ body {
     padding: 10% 10px 0 10px;
 }
 
-
-p+img {
-    margin-left: 25%;
-}
-
-.type_a {
+.type_a:first-child {
     padding-bottom: 5%;
-    min-height: 250px;
 }
 
 .type_a p {
@@ -107,10 +100,6 @@ p+img {
 }
 
 
-.type_b {
-    padding-bottom: 5%;
-}
-
 .type_b p {
     width: 40%;
     float: right;
@@ -122,8 +111,6 @@ p+img {
     text-align: right;
 }
 
-
-
 .type_c {
     padding-bottom: 20%;
 }
@@ -134,7 +121,13 @@ p+img {
 
 #github {
     text-align: center;
+    margin: 0;
+    padding-top: 5%;
 }
+#description {
+    padding-top: 5%;
+}
+
 
 .type_c h2 {
     text-align: center;
@@ -151,6 +144,11 @@ figure img {
     width: 70%;
 }
 
+.scheme {
+    width: 450px;
+    margin: 0;
+    transform: translate(60px,-52px);
+}
 
 figcaption {
     color: white;
@@ -170,15 +168,17 @@ figcaption {
 
 .type_git {
     height: 800px;
-    margin-top: 45px;
 }
 .git {
-    width: 700px;
+    width: 800px;
     height: 700px;
     position: absolute;
     right: 50%;
     transform: translateX(50%);
 }
+
+
+
 
 @media (max-width: 1440px) {
     li{
